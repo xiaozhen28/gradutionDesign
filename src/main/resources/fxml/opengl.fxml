@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="639.0" prefWidth="829.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.JoglController">
+  <tabs>
+    <Tab text="house">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TextArea fx:id="houseCode" layoutX="14.0" layoutY="14.0" prefHeight="490.0" prefWidth="649.0" />
+                  <Button layoutX="675.0" layoutY="30.0" mnemonicParsing="false" onAction="#RunHouse" prefHeight="30.0" prefWidth="63.0" text="执行" />
+               </children></AnchorPane>
+      </content>
+    </Tab>
+      <Tab text="cube">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TextArea fx:id="cubeCode" layoutX="14.0" layoutY="14.0" prefHeight="477.0" prefWidth="657.0" />
+                  <Button layoutX="681.0" layoutY="461.0" mnemonicParsing="false" onAction="#RunCube" prefHeight="30.0" prefWidth="61.0" text="执行" />
+               </children></AnchorPane>
+         </content>
+      </Tab>
+      <Tab text="texture">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TextArea fx:id="textureCode" layoutX="7.0" layoutY="14.0" prefHeight="562.0" prefWidth="641.0" />
+                  <Button fx:id="cubeButton" layoutX="720.0" layoutY="528.0" mnemonicParsing="false" onAction="#RunTexture" prefHeight="30.0" prefWidth="79.0" text="执行" />
+                  <Button fx:id="textureButton" layoutX="711.0" layoutY="130.0" mnemonicParsing="false" onAction="#getFile" prefHeight="30.0" prefWidth="97.0" text="选择贴图" />
+                  <ImageView fx:id="textureImage" fitHeight="95.0" fitWidth="107.0" layoutX="706.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label layoutX="655.0" layoutY="32.0" prefHeight="20.0" prefWidth="50.0" text="贴图：" />
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab text="Triangle3d">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TextArea fx:id="triangle3dCode" layoutX="7.0" layoutY="14.0" prefHeight="507.0" prefWidth="641.0" />
+                  <Button layoutX="655.0" layoutY="465.0" mnemonicParsing="false" onAction="#RunTriangle3d" prefHeight="30.0" prefWidth="79.0" text="执行" />
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab text="光源">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TextArea fx:id="triangle3dCode1" layoutX="7.0" layoutY="14.0" prefHeight="507.0" prefWidth="641.0" />
+                  <Button layoutX="733.0" layoutY="328.0" mnemonicParsing="false" onAction="#RunLight" prefHeight="30.0" prefWidth="79.0" text="执行" />
+                  <Label layoutX="657.0" layoutY="71.0" text="坐标x" />
+                  <TextField layoutX="701.0" layoutY="66.0" prefHeight="30.0" prefWidth="96.0" text="0" fx:id="x_input" />
+                  <TextField fx:id="y_input" layoutX="701.0" layoutY="106.0" prefHeight="30.0" prefWidth="96.0" text="100" />
+                  <TextField fx:id="z_input" layoutX="700.0" layoutY="151.0" prefHeight="30.0" prefWidth="97.0" text="-300" />
+                  <Label layoutX="657.0" layoutY="111.0" text="坐标y" />
+                  <Label layoutX="657.0" layoutY="156.0" text="坐标z" />
+                  <Label layoutX="657.0" layoutY="31.0" text="设置光源位置" />
+                  <ColorPicker fx:id="colorPicker" layoutX="712.0" layoutY="245.0" />
+                  <Label layoutX="655.0" layoutY="211.0" text="设置光源的颜色" />
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+  </tabs>
+</TabPane>

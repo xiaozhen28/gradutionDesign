@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.media.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="Apane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="840.0" prefWidth="1284.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
+    <children>
+      <MenuBar layoutY="-2.0" prefHeight="32.0" prefWidth="1278.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="开始">
+            <items>
+                  <MenuItem mnemonicParsing="false" onAction="#setCanvasBackground" text="画板重置" />
+              <MenuItem mnemonicParsing="false" text="关闭" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="opengl">
+              <items>
+                <MenuItem fx:id="openGL" mnemonicParsing="false" onAction="#open" text="opengl 绘制平面直线" />
+                  <MenuItem fx:id="openGL1" mnemonicParsing="false" onAction="#open" text="opengl 绘制3D彩色Cube" />
+                  <MenuItem fx:id="openGL11" mnemonicParsing="false" onAction="#open" text="opengl 带3D贴图的Cube" />
+                  <MenuItem fx:id="openGL111" mnemonicParsing="false" onAction="#open" text="opengl 绘制3D三角形" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="展示算法信息">
+              <items>
+                  <Menu mnemonicParsing="false" text="基本图元绘制">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="中点直线绘制" />
+                        <MenuItem mnemonicParsing="false" text="中点圆形绘制" />
+                        <MenuItem mnemonicParsing="false" text="中点椭圆绘制" />
+                        <MenuItem mnemonicParsing="false" text="WUs反走样" />
+                    </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="填充算法">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="多边形有效填充" />
+                        <MenuItem mnemonicParsing="false" text="区域四邻接点填充" />
+                        <MenuItem mnemonicParsing="false" text="区域八邻接点填充" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="图形变换算法">
+                     <items>
+                        <Menu mnemonicParsing="false" text="2D">
+                          <items>
+                            <MenuItem mnemonicParsing="false" text="平移变换" />
+                              <MenuItem mnemonicParsing="false" text="比例变换" />
+                              <MenuItem mnemonicParsing="false" text="旋转变换" />
+                              <MenuItem mnemonicParsing="false" text="对称变换" />
+                          </items>
+                        </Menu>
+                        <Menu mnemonicParsing="false" text="3D">
+                           <items>
+                              <MenuItem mnemonicParsing="false" text="平移变换" />
+                              <MenuItem mnemonicParsing="false" text="比例变换" />
+                              <MenuItem mnemonicParsing="false" text="旋转变换" />
+                              <MenuItem mnemonicParsing="false" text="对称变换" />
+                           </items>
+                        </Menu>
+                     </items>
+                  </Menu>
+              </items>
+            </Menu>
+        </menus>
+      </MenuBar>
+      <SplitPane dividerPositions="0.7162329615861215" layoutY="30.0" orientation="VERTICAL" prefHeight="809.0" prefWidth="1280.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="577.0" prefWidth="1278.0">
+               <children>
+                  <SplitPane dividerPositions="0.7236220472440945" layoutX="1.0" layoutY="1.0" prefHeight="573.0" prefWidth="1272.0">
+                    <items>
+                      <AnchorPane fx:id="canvas_AnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="596.0" prefWidth="915.0">
+                           <children>
+                                <Canvas fx:id="canvas" height="570.0" layoutX="3.0" width="900.0" />
+                           </children>
+                        </AnchorPane>
+                      <AnchorPane fx:id="leftAnchorpane" minHeight="0.0" minWidth="0.0" prefHeight="539.0" prefWidth="386.0">
+                           <children>
+                              <TabPane fx:id="leftTabPane" layoutX="-2.0" prefHeight="575.0" prefWidth="335.0" tabClosingPolicy="UNAVAILABLE">
+                                <tabs>
+                                  <Tab text="选择合适的算法">
+                                       <content>
+                                          <TreeView fx:id="tabletree" editable="false" fixedCellSize="55.0" prefHeight="507.0" prefWidth="373.0" />
+                                       </content>
+                                  </Tab>
+                                </tabs>
+                              </TabPane>
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="212.0" prefWidth="1278.0">
+               <children>
+                  <SplitPane dividerPositions="0.63671875" prefHeight="221.0" prefWidth="1282.0">
+                    <items>
+                      <AnchorPane fx:id="consoleAnChorPane" minHeight="0.0" minWidth="0.0" prefHeight="188.0" prefWidth="732.0">
+                           <children>
+                              <TextArea fx:id="consoletext" prefHeight="219.0" prefWidth="811.0" />
+                           </children>
+                        </AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="166.0" prefWidth="540.0">
+                           <children>
+                              <TabPane prefHeight="219.0" prefWidth="458.0" tabClosingPolicy="UNAVAILABLE">
+                                <tabs>
+                                  <Tab text="坐标">
+                                    <content>
+                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="172.0" prefWidth="538.0">
+                                             <children>
+                                                <Label layoutX="276.0" layoutY="27.0" prefHeight="20.0" prefWidth="165.0" text="当前画笔位置" />
+                                                <Label layoutX="277.0" layoutY="58.0" prefHeight="20.0" prefWidth="23.0" text="X" />
+                                                <TextField fx:id="startx" layoutX="74.0" layoutY="18.0" prefHeight="30.0" prefWidth="60.0" text="1" />
+                                                <TextField fx:id="endx" layoutX="74.0" layoutY="60.0" prefHeight="30.0" prefWidth="60.0" text="100" />
+                                                <Slider fx:id="speed" blockIncrement="1.0" layoutX="71.0" layoutY="118.0" majorTickUnit="5.0" max="50.0" min="1.0" minorTickCount="1" prefHeight="18.0" prefWidth="316.0" showTickLabels="true" showTickMarks="true" value="20.0" />
+                                                <Label layoutX="14.0" layoutY="22.0" text="起点" />
+                                                <Label layoutX="14.0" layoutY="66.0" prefHeight="15.0" prefWidth="30.0" text="终点" />
+                                                <TextField fx:id="endy" layoutX="165.0" layoutY="60.0" prefHeight="30.0" prefWidth="60.0" text="100" />
+                                                <TextField fx:id="starty" layoutX="165.0" layoutY="21.0" prefHeight="30.0" prefWidth="60.0" text="1" />
+                                                <Label layoutX="59.0" layoutY="20.0" prefHeight="20.0" prefWidth="0.0" text="x" />
+                                                <Label layoutX="152.0" layoutY="23.0" prefHeight="20.0" prefWidth="0.0" text="y" />
+                                                <Label layoutX="59.0" layoutY="64.0" prefHeight="20.0" prefWidth="0.0" text="x" />
+                                                <Label layoutX="152.0" layoutY="63.0" prefHeight="20.0" prefWidth="0.0" text="y" />
+                                                <Label layoutX="16.0" layoutY="106.0" prefHeight="15.0" prefWidth="30.0" text="速度" />
+                                                <Label layoutX="363.0" layoutY="60.0" prefHeight="9.0" prefWidth="23.0" text="Y" />
+                                                <TextField fx:id="penX" layoutX="300.0" layoutY="56.0" prefHeight="30.0" prefWidth="48.0" text="0" />
+                                                <TextField fx:id="penY" layoutX="386.0" layoutY="56.0" prefHeight="30.0" prefWidth="48.0" text="0" />
+                                                <Label layoutX="402.0" layoutY="116.0" text="单位 ms" />
+                                             </children></AnchorPane>
+                                    </content>
+                                  </Tab>
+                                  <Tab text="绘制点参数">
+                                    <content>
+                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <ColorPicker fx:id="getcolorpicker" editable="true" layoutX="101.0" layoutY="22.0" />
+                                                <Label layoutX="22.0" layoutY="27.0" text="绘制点颜色" />
+                                                <Slider fx:id="pointSize" blockIncrement="1.0" layoutX="105.0" layoutY="67.0" majorTickUnit="1.0" max="10.0" min="1.0" minorTickCount="1" prefHeight="18.0" prefWidth="193.0" showTickLabels="true" showTickMarks="true" />
+                                                <Label layoutX="23.0" layoutY="68.0" text="绘制点大小" />
+                                             </children></AnchorPane>
+                                    </content>
+                                  </Tab>
+                                    <Tab text="二维变换指令">
+                                       <content>
+                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="439.0">
+                                             <children>
+                                                <Button fx:id="buttonTranslate2" layoutX="14.0" layoutY="2.0" mnemonicParsing="false" onAction="#Translate2D" text="平移变换" />
+                                                <Button fx:id="buttonScale2" layoutX="15.0" layoutY="40.0" mnemonicParsing="false" onAction="#Scale2D" text="比例变换" />
+                                                <Button layoutX="15.0" layoutY="74.0" mnemonicParsing="false" onAction="#Rotate2D" text="旋转变换" />
+                                                <Button fx:id="buttonReflectOrg2" layoutX="15.0" layoutY="107.0" mnemonicParsing="false" onAction="#Reflect2D" text="反射变换" />
+                                                <Button layoutX="14.0" layoutY="140.0" mnemonicParsing="false" onAction="#Sheer2D" text="错切变换" />
+                                                <TextField fx:id="input2_tx" layoutX="119.0" layoutY="2.0" prefHeight="30.0" prefWidth="77.0" />
+                                                <TextField fx:id="input2_ty" layoutX="229.0" layoutY="2.0" prefHeight="30.0" prefWidth="65.0" />
+                                                <TextField fx:id="input2_sx" layoutX="119.0" layoutY="40.0" prefHeight="30.0" prefWidth="81.0" />
+                                                <TextField fx:id="input2_Beta" layoutX="113.0" layoutY="74.0" prefHeight="30.0" prefWidth="69.0" />
+                                                <Label layoutX="103.0" layoutY="7.0" text="Tx" />
+                                                <Label layoutX="210.0" layoutY="6.0" text="Ty" />
+                                                <Label layoutX="99.0" layoutY="45.0" prefHeight="20.0" prefWidth="24.0" text="Sx" />
+                                                <TextField fx:id="input2_sy" layoutX="231.0" layoutY="40.0" prefHeight="30.0" prefWidth="41.0" />
+                                                <Label layoutX="214.0" layoutY="44.0" prefHeight="20.0" prefWidth="29.0" text="Sy" />
+                                                <RadioButton layoutX="294.0" layoutY="80.0" mnemonicParsing="false" text="x" textOverrun="CLIP">
+                                                   <toggleGroup>
+                                                      <ToggleGroup fx:id="toggglGroup2DRotate" />
+                                                   </toggleGroup>
+                                                </RadioButton>
+                                                <RadioButton layoutX="333.0" layoutY="80.0" mnemonicParsing="false" text="y" toggleGroup="$toggglGroup2DRotate" />
+                                                <Label layoutX="244.0" layoutY="79.0" text="旋转轴" />
+                                                <RadioButton layoutX="106.0" layoutY="113.0" mnemonicParsing="false" selected="true" text="x" textOverrun="CLIP">
+                                                   <toggleGroup>
+                                                      <ToggleGroup fx:id="toggglGroup2DReflect" />
+                                                   </toggleGroup>
+                                                </RadioButton>
+                                                <RadioButton layoutX="153.0" layoutY="112.0" mnemonicParsing="false" text="y" textOverrun="CLIP" toggleGroup="$toggglGroup2DReflect" />
+                                                <RadioButton layoutX="205.0" layoutY="114.0" mnemonicParsing="false" text="O" textOverrun="CLIP" toggleGroup="$toggglGroup2DReflect" />
+                                                <Label layoutX="192.0" layoutY="82.0" text="度" />
+                                                <TextField fx:id="input2_b" layoutX="123.0" layoutY="141.0" prefHeight="30.0" prefWidth="69.0" />
+                                                <TextField fx:id="input2_c" layoutX="224.0" layoutY="142.0" prefHeight="30.0" prefWidth="69.0" />
+                                                <Label layoutX="103.0" layoutY="147.0" prefHeight="20.0" prefWidth="17.0" text="b" />
+                                                <Label layoutX="203.0" layoutY="145.0" text="c" />
+                                             </children>
+                                          </AnchorPane>
+                                       </content>
+                                    </Tab>
+                                    <Tab text="三维变换指令">
+                                      <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="439.0">
+                                             <children>
+                                                <Button fx:id="buttonTranslate" layoutX="14.0" layoutY="2.0" mnemonicParsing="false" onAction="#Translate3D" text="平移变换" />
+                                                <Button fx:id="buttonScale" layoutX="15.0" layoutY="40.0" mnemonicParsing="false" onAction="#Scale3D" text="比例变换" />
+                                                <Button layoutX="15.0" layoutY="74.0" mnemonicParsing="false" onAction="#Rotate3D" text="旋转变换" />
+                                                <Button fx:id="buttonReflectOrg" layoutX="15.0" layoutY="107.0" mnemonicParsing="false" onAction="#Reflect3D" text="反射变换" />
+                                                <Button layoutX="14.0" layoutY="140.0" mnemonicParsing="false" onAction="#Sheer3D" text="错切变换" />
+                                                <TextField fx:id="input3_tx" layoutX="119.0" layoutY="2.0" prefHeight="30.0" prefWidth="51.0" />
+                                                <TextField fx:id="input3_ty" layoutX="192.0" layoutY="2.0" prefHeight="30.0" prefWidth="56.0" />
+                                                <TextField fx:id="input3_sx" layoutX="119.0" layoutY="40.0" prefHeight="30.0" prefWidth="55.0" />
+                                                <TextField fx:id="input3_Beta" layoutX="108.0" layoutY="74.0" prefHeight="30.0" prefWidth="79.0" />
+                                                <Label layoutX="103.0" layoutY="7.0" text="Tx" />
+                                                <Label layoutX="173.0" layoutY="6.0" text="Ty" />
+                                                <Label layoutX="99.0" layoutY="45.0" prefHeight="20.0" prefWidth="24.0" text="Sx" />
+                                                <TextField fx:id="input3_sy" layoutX="193.0" layoutY="40.0" prefHeight="30.0" prefWidth="64.0" />
+                                                <Label layoutX="176.0" layoutY="44.0" prefHeight="20.0" prefWidth="29.0" text="Sy" />
+                                                <TextField fx:id="input3_tz" layoutX="278.0" layoutY="2.0" prefHeight="30.0" prefWidth="66.0" />
+                                                <TextField fx:id="input3_sz" layoutX="278.0" layoutY="40.0" prefHeight="30.0" prefWidth="67.0" />
+                                                <Label layoutX="257.0" layoutY="8.0" text="Tz" />
+                                                <Label layoutX="259.0" layoutY="44.0" prefHeight="20.0" prefWidth="29.0" text="Sz" />
+                                                <RadioButton layoutX="271.0" layoutY="80.0" mnemonicParsing="false" selected="true" text="x" textOverrun="CLIP">
+                                                   <toggleGroup>
+                                                      <ToggleGroup fx:id="toggglGroup3DRotate" />
+                                                   </toggleGroup>
+                                                </RadioButton>
+                                                <RadioButton layoutX="310.0" layoutY="80.0" mnemonicParsing="false" text="y" toggleGroup="$toggglGroup3DRotate" />
+                                                <RadioButton layoutX="351.0" layoutY="79.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="35.0" text="z" toggleGroup="$toggglGroup3DRotate" />
+                                                <Label layoutX="221.0" layoutY="79.0" text="旋转轴" />
+                                                <RadioButton layoutX="106.0" layoutY="113.0" mnemonicParsing="false" selected="true" text="x" textOverrun="CLIP">
+                                                   <toggleGroup>
+                                                      <ToggleGroup fx:id="toggglGroup3DReflect" />
+                                                   </toggleGroup>
+                                                </RadioButton>
+                                                <RadioButton layoutX="145.0" layoutY="111.0" mnemonicParsing="false" text="y" textOverrun="CLIP" toggleGroup="$toggglGroup3DReflect" />
+                                                <RadioButton layoutX="188.0" layoutY="112.0" mnemonicParsing="false" text="z" textOverrun="CLIP" toggleGroup="$toggglGroup3DReflect" />
+                                                <RadioButton layoutX="234.0" layoutY="112.0" mnemonicParsing="false" text="xOy" textOverrun="CLIP" toggleGroup="$toggglGroup3DReflect" />
+                                                <RadioButton layoutX="300.0" layoutY="112.0" mnemonicParsing="false" text="yOz" textOverrun="CLIP" toggleGroup="$toggglGroup3DReflect" />
+                                                <RadioButton layoutX="362.0" layoutY="110.0" mnemonicParsing="false" text="zOx" textOverrun="CLIP">
+                                                   <toggleGroup>
+                                                      <ToggleGroup fx:id="toggglGrou3DpReflect" />
+                                                   </toggleGroup>
+                                                </RadioButton>
+                                                <RadioButton layoutX="240.0" layoutY="147.0" mnemonicParsing="false" selected="true" text="x" textOverrun="CLIP">
+                                                   <toggleGroup>
+                                                      <ToggleGroup fx:id="toggglGroup3DShear" />
+                                                   </toggleGroup>
+                                                </RadioButton>
+                                                <RadioButton layoutX="294.0" layoutY="147.0" mnemonicParsing="false" text="y" textOverrun="CLIP" toggleGroup="$toggglGroup3DShear" />
+                                                <RadioButton layoutX="351.0" layoutY="147.0" mnemonicParsing="false" text="z" textOverrun="CLIP" toggleGroup="$toggglGroup3DShear" />
+                                                <Label layoutX="191.0" layoutY="78.0" text="度" />
+                                                <TextField fx:id="input3_sheer1" layoutX="119.0" layoutY="140.0" prefHeight="30.0" prefWidth="46.0" />
+                                                <TextField fx:id="input3_sheer2" layoutX="173.0" layoutY="140.0" prefHeight="30.0" prefWidth="45.0" />
+                                             </children>
+                                          </AnchorPane>
+                                      </content>
+                                    </Tab>
+                                </tabs>
+                              </TabPane>
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+    </children>
+</AnchorPane>
